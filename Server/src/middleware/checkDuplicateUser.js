@@ -11,7 +11,7 @@ const checkDuplicateUser = async (req, res, next) => {
     if (existingUser) {
       return res
         .status(400)
-        .json({ message: 'Usuario ja existenco com esse email ou senha.' });
+        .json({ message: 'Usuario ja existe com esse email ou senha.' });
     }
 
     next();

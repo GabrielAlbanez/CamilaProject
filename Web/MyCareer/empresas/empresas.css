@@ -20,8 +20,8 @@ body {
 }
 
 .logo img {
-        width: 40px;
-        height: auto;
+  width: 40px;
+  height: auto;
 }
 
 .nav-list {
@@ -117,48 +117,123 @@ body {
   font-size: 1rem;
 }
 
+/* Container do menu de perfil */
+.profile-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Estilos da bolinha de perfil */
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  background: linear-gradient(145deg, #6a11cb, #2575fc);
+  padding: 2px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.profile-icon img:hover {
+  transform: scale(1.1);
+}
+
+/* Menu suspenso */
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  z-index: 1000;
+  width: 160px;
+  text-align: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Nome do usuário */
+.dropdown span#user-name {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Email do usuário */
+.dropdown span#user-email {
+  display: block;
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 15px;
+  word-break: break-word;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Botão de logout */
+.dropdown .btn-logout {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.dropdown .btn-logout:hover {
+  background-color: #e60000;
+  transform: scale(1.05);
+}
+
+/* Links no dropdown */
+.dropdown .profile-links {
+  display: none; /* Padrão: invisível */
+  text-align: left;
+  margin-top: 15px;
+}
+
+.dropdown .profile-links li {
+  margin-bottom: 10px;
+}
+
+.dropdown .profile-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.dropdown .profile-links a:hover {
+  color: #35cfb4;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
-
-    .logo img {
-        width: 60px;
-        height: auto;
-    }
-
-    .logo  {
-       margin: 0px 0px 0px 0px;
-    }
-
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-
-    gap: 15px;
-  }
-
   .nav-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 0px 0px 0px 0px;
-    gap: 10px;
+    display: none; /* Esconde os links da navbar em telas menores */
   }
 
-  .btn-login {
-    width: 100%;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
+  .dropdown .profile-links {
+    display: block; /* Exibe os links no dropdown em telas menores */
   }
 }
 
@@ -178,5 +253,23 @@ body {
 
   .card ul li {
     font-size: 0.9rem;
+  }
+
+  .profile-icon img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .dropdown {
+    padding: 15px;
+  }
+
+  .dropdown span#user-name {
+    font-size: 16px;
+  }
+
+  .dropdown span#user-email {
+    font-size: 14px;
+    word-wrap: break-word;
   }
 }
